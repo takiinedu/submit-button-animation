@@ -15,18 +15,18 @@ function degreeadd() {
         setTimeout(function(){
             tick.style.width = "70px";
             tick.style.height = "70px";
-        },500)
+        }, 500);
         setTimeout(function(){
             tick.style.transition = "0.8s";
             tick.style.width = "0px";
             tick.style.height = "0px";
             tick.style.opacity = "0";
-        },1200)
-        return; // Dừng lại khi đạt 360 độ
+        }, 1200);
+        return; // Stop when reaching 360 degrees
     } else {
-        // Cập nhật màu nền của text và myDiv
-        text.style.backgroundClip = "text"; // Sửa lại thuộc tính backgroundClip
-        text.style.color = "transparent"; // Đặt màu chữ là transparent để thấy gradient
+        // Update the background color of text and myDiv
+        text.style.backgroundClip = "text"; // Fix backgroundClip property
+        text.style.color = "transparent"; // Set text color to transparent to see gradient
         myDiv.style.background = `linear-gradient(peachpuff 0 0) padding-box, conic-gradient(deepskyblue ${degree}deg, white 0deg) border-box`;
         setTimeout(function() {
             degreeadd();
@@ -34,23 +34,19 @@ function degreeadd() {
     }
 }
 
-// Thêm sự kiện mouseenter để bắt đầu thay đổi màu nền khi chuột di vào
-myDiv.addEventListener("mouseenter", function() {
+// Change mouseenter to click to start background change
+myDiv.addEventListener("click", function() {
     myDiv.style.borderRadius = "50%";
     myDiv.style.width = "100px";
     myDiv.style.height = "100px";
-    degree = 0; // Đặt lại degree về 0 mỗi khi di chuột vào
+    degree = 0; // Reset degree to 0 on click
     myDiv.style.background = `linear-gradient(peachpuff 0 0) padding-box, conic-gradient(deepskyblue ${degree}deg, white 0deg) border-box`;
     text.style.background = `linear-gradient(to left ,deepskyblue 0%, white ${degree / 360 * 100}%)`;
-    text.style.backgroundClip = "text"; // Sửa lại thuộc tính backgroundClip
+    text.style.backgroundClip = "text"; // Fix backgroundClip property
     text.style.color = "transparent"; 
     setTimeout(function() {
         degreeadd();
     }, 1000);
 });
 
-// Thêm sự kiện mouseleave để khôi phục màu nền khi chuột thoát
-myDiv.addEventListener("mouseleave", function() {
-    degree = 0; // Đặt lại degree về 0 khi thoát chuột
-    myDiv.style.backgroundColor = "deepskyblue"; // Khôi phục màu nền
-});
+// Remove mouseleave event
