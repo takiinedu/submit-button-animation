@@ -25,7 +25,6 @@ function degreeadd() {
         return; // Dừng lại khi đạt 360 độ
     } else {
         // Cập nhật màu nền của text và myDiv
-        text.style.background = `linear-gradient(to left ,deepskyblue ${degree / 360 * 100}%, white ${degree / 360 * 100}%)`;
         text.style.backgroundClip = "text"; // Sửa lại thuộc tính backgroundClip
         text.style.color = "transparent"; // Đặt màu chữ là transparent để thấy gradient
         myDiv.style.background = `linear-gradient(peachpuff 0 0) padding-box, conic-gradient(deepskyblue ${degree}deg, white 0deg) border-box`;
